@@ -1,0 +1,223 @@
+import { useState, useEffect, useContext } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import { FiPlusCircle } from "react-icons/fi"
+import { toast } from "react-toastify"
+import { AuthContext } from "../../contexts/auth"
+import { db } from "../../services/firebaseConnection"
+import { collection, getDocs, getDoc, doc, query, where, addDoc, updateDoc } from "firebase/firestore"
+import Header from "../../components/Header"
+import Title from "../../components/Title"
+import "./newcall.css"
+
+const listRef = collection(db, "customers")
+
+export default function NewCall() {
+  const { user } = useContext(AuthContext)
+  const { id } = useParams()
+
+  const navigate = useNavigate()
+
+  const [subjects, setSubjects] = useState(["Support", "Technical visit", "Financial"])
+  const [customers, setCustomers] = useState([])
+  const [loadCustomer, setLoadCustomer] = useState(true)
+  const [editCall, setEditCall] = useState(false)
+
+  const [customerIndex, setCustomerIndex] = useState(0)
+  const [subject, setSubject] = useState(subjects[0])
+  const [status, setStatus] = useState("Open")
+  const [complement, setComplement] = useState("")
+
+  useEffect(() => {
+    async function loadCustomers() {
+      await getDocs(query(listRef, where("userUid", "==", user.uid))).then((snapshot) => {
+        let list = []
+
+        snapshot.forEach((doc) => {
+          list.push({
+            id: doc.id,
+            name: doc.data().name
+          })
+        })
+
+        if(snapshot.docs.size === 0) {
+          setCustomers([{id: '1', name: "Freela" }])
+          setLoadCustomer(false)
+          return
+        } 
+
+        setCustomers(list)
+        setLoadCustomer(false)
+
+        if(id) {
+          loadId(list)
+        }
+      }).catch((error) => {
+        console({error: error, action: 'loadCustomers'})
+        setLoadCustomer(false)
+        setCustomers([{id: '1', name: "Freela" }])
+      })
+    }
+
+    loadCustomers()
+  }, [id])
+
+  const handleCustomer = (e) => {
+    setCustomerIndex(e.target.value);
+  }
+
+  const handleSubject = (e) => {
+    setSubject(e.target.value);
+  }
+
+  const handleStatus = (e) => {
+    setStatus(e.target.value)
+  }
+
+  async function handleRegister(e) {
+    e.preventDefault()
+
+    if (editCall) {
+      update()
+      return
+    }
+
+    await addDoc(collection(db, 'calls'), {
+      created: new Date(),
+      customerName: customers[customerIndex].name,
+      customerId: customers[customerIndex].id,
+      subject: subject,
+      complement: complement,
+      status: status,
+      userUid: user.uid
+    }).then(() => {
+      toast.success("Register Success.")
+      resetFilds()
+    }).catch((error) => {
+      console.log({error: error, action: 'handleRegister'})
+    })
+  }
+
+  async function update() {
+    const docRef = doc(db, "calls", id)
+    await updateDoc(docRef, {
+      subject: subject,
+      complement: complement,
+      status: status
+    }).then(() => {
+      toast.success("Update Success.")
+      resetFilds()
+      navigate('/dashboard')
+    }).catch((error) => {
+      console.log({error: error, action: 'update'})
+    })
+  }
+
+  async function loadId(list) {
+    const docRef = doc(db, "calls", id)
+    await getDoc(docRef).then((snapshot) => {
+      const call = snapshot.data()
+
+      setSubject(call.subject)
+      setComplement(call.complement)
+      setStatus(call.status)
+
+      let customerId = list.findIndex(item => item.id === call.customerId)
+
+      if(customerId !== -1) {
+        setCustomerIndex(customerId)
+      } else {
+        setCustomerIndex(0)
+      }
+
+      setEditCall(true)
+    }).catch((error) => {
+      console.log({error: error, action: 'loadId'})
+      setEditCall(false)
+    })
+  }
+
+  function resetFilds() {
+    setCustomerIndex(0)
+    setSubject(subjects[0])
+    setComplement('')    
+    setStatus("Open")
+  }
+
+  return (
+    <div>
+      <Header/>
+      <div className="content">
+        <Title name={id ? "Edit Ticket" : "Tickets"}>
+          <FiPlusCircle size={25}/>
+        </Title>
+
+        <div className="container">
+          <form className="form-profile" onSubmit={handleRegister}>
+            <label>Clients</label>           
+            {
+              loadCustomer ? (
+                <input type="text" disabled={true} value="Loading..." />
+              ) : (
+                <select value={customerIndex} onChange={handleCustomer}>
+                  {customers.map((item, index) => {
+                    return(<option key={index} value={index}>{item.name}</option>)
+                  })}
+                </select>
+              )
+            }           
+
+            <label>Subject</label>
+            <select value={subject} onChange={handleSubject}>
+              {subjects.map((value, index) => (
+                <option key={index} value={value}>{value}</option>
+              ))}
+            </select>
+
+            <label>Status</label>
+            <div className="status"> 
+              <input
+                type="radio"
+                name="radio"
+                value="Open"
+                onChange={handleStatus}
+                checked={status === "Open"}
+              />
+              <span>Open</span>
+
+              <input
+                type="radio"
+                name="radio"
+                value="Progress"
+                onChange={handleStatus}
+                checked={status === "Progress"}
+              />
+              <span>Progress</span>
+
+              <input
+                type="radio"
+                name="radio"
+                value="Serviced"
+                onChange={handleStatus}
+                checked={status === "Serviced"}
+              />
+              <span>Serviced</span>
+            </div>
+
+            <label>Complement</label>
+            <textarea
+              type="text"
+              placeholder="Describe your problem (optional)."
+              value={complement}
+              onChange={(e) => setComplement(e.target.value)}
+            />
+
+            <button type="submit"> Register </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+// Esse éra a declaração do newcall antes de implementar o import { useForm } from "react-hook-form"
