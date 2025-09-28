@@ -38,7 +38,7 @@ In this project, three different types of strategies were used to save and chang
 
 ![Tela Dashboard - Após o login](public/imagens/03. Tela Dashboard - Após o login.png)
 
-![Tela Dashboard - Ação de nova task](public/imagens/04. Tela Dashboard - Ação de nova task.png)
+![Tela Dashboard - Ação de nova task](https://github.com/davidbehling/calling-systems/blob/main/public/images/03.%20Tela%20Dashboard%20-%20Ap%C3%B3s%20o%20login.png)
 
 ![Formulário de Nova Task](public/imagens/05. Formulário de Nova Task.png)
 
