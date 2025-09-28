@@ -32,7 +32,7 @@ In this project, three different types of strategies were used to save and chang
 
 
 
-![Tela Inicial](public/imagens/01. Tela Inicial.png)
+![Tela Inicial](imagens/01. Tela Inicial.png)
 
 ![Tela de Registro](public/imagens/02. Tela de Registro.png)
 
