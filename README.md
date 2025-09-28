@@ -31,43 +31,78 @@ In this project, three different types of strategies were used to save and chang
 3. the react-hook-form library for the Calls object
 
 
+Tela Inicial
 
-![Tela Inicial](imagens/01. Tela Inicial.png)
+![Tela Inicial](https://github.com/davidbehling/calling-systems/blob/main/public/images/01.%20Tela%20Inicial.png)
 
-![Tela de Registro](public/imagens/02. Tela de Registro.png)
+Tela de Registro
 
-![Tela Dashboard - Após o login](public/imagens/03. Tela Dashboard - Após o login.png)
+![Tela de Registro](https://github.com/davidbehling/calling-systems/blob/main/public/images/02.%20Tela%20de%20Registro.png)
 
-![Tela Dashboard - Ação de nova task](https://github.com/davidbehling/calling-systems/blob/main/public/images/03.%20Tela%20Dashboard%20-%20Ap%C3%B3s%20o%20login.png)
+Tela Dashboard - Após o login
 
-![Formulário de Nova Task](public/imagens/05. Formulário de Nova Task.png)
+![Tela Dashboard - Após o login](https://github.com/davidbehling/calling-systems/blob/main/public/images/03.%20Tela%20Dashboard%20-%20Ap%C3%B3s%20o%20login.png)
 
-![Tela Dashboard - Ação mostrar mais Tasks](public/imagens/06. Tela Dashboard - Ação mostrar mais Tasks.png)
+Tela Dashboard - Ação de nova task
 
-![Tela Dashboard - Visulizando mais Tasks](public/imagens/07. Tela Dashboard - Visulizando mais Tasks.png)
+![Tela Dashboard - Ação de nova task](https://github.com/davidbehling/calling-systems/blob/main/public/images/04.%20Tela%20Dashboard%20-%20A%C3%A7%C3%A3o%20de%20nova%20task.png)
 
-![Tela Criar Customers](public/imagens/08. Tela Criar Customers.png)
+Formulário de Nova Task
 
-![Tela Edição do Usuário](public/imagens/09. Tela Edição do Usuário.png)
+![Formulário de Nova Task](https://github.com/davidbehling/calling-systems/blob/main/public/images/05.%20Formul%C3%A1rio%20de%20Nova%20Task.png)
+
+Tela Dashboard - Ação mostrar mais Tasks
+
+![Tela Dashboard - Ação mostrar mais Tasks](https://github.com/davidbehling/calling-systems/blob/main/public/images/06.%20Tela%20Dashboard%20-%20A%C3%A7%C3%A3o%20mostrar%20mais%20Tasks.png)
+
+Tela Dashboard - Visulizando mais Tasks
+
+![Tela Dashboard - Visulizando mais Tasks](https://github.com/davidbehling/calling-systems/blob/main/public/images/07.%20Tela%20Dashboard%20-%20Visulizando%20mais%20Tasks.png)
+
+Tela Criar Customers
+
+![Tela Criar Customers](https://github.com/davidbehling/calling-systems/blob/main/public/images/08.%20Tela%20Criar%20Customers.png)
+
+Tela Edição do Usuário
+
+![Tela Edição do Usuário](https://github.com/davidbehling/calling-systems/blob/main/public/images/09.%20Tela%20Edi%C3%A7%C3%A3o%20do%20Usu%C3%A1rio.png)
 
 
 
-![Responsível - Tela Inicial](public/imagens/10. Tela Inicial.png)
+Responsível - Tela Inicial
 
-![Responsível - Tela de Registro](public/imagens/11. Tela de Registro.png)
+![Responsível - Tela Inicial](https://github.com/davidbehling/calling-systems/blob/main/public/images/10.%20Tela%20Inicial.png)
 
-![Responsível - Tela de Dashboard - Após o login](public/imagens/12. Tela de Dashboard - Após o login.png)
+Responsível - Tela de Registro
 
-![Responsível - Tela de Dashboard -  Botão para visualizar mais tasks](public/imagens/13. Tela de Dashboard -  Botão para visualizar mais tasks.png)
+![Responsível - Tela de Registro](https://github.com/davidbehling/calling-systems/blob/main/public/images/11.%20Tela%20de%20Registro.png)
 
-![Responsível - Tela de Dashboard - Visualizar Task](public/imagens/14. Tela de Dashboard - Visualizar Task.png)
+Responsível - Tela de Dashboard - Após o login
 
-![Responsível - Tela Formulário Editar Task](public/imagens/15. Formulário Editar Task.png)
+![Responsível - Tela de Dashboard - Após o login](https://github.com/davidbehling/calling-systems/blob/main/public/images/12.%20Tela%20de%20Dashboard%20-%20Ap%C3%B3s%20o%20login.png)
 
-![Responsível - Tela Formulário Nova Task](public/imagens/16. Formulário Nova Task.png)
+Responsível - Tela de Dashboard -  Botão para visualizar mais tasks
 
-![Responsível - Tela Formulário Criar Customer](public/imagens/17. Formulário Criar Customer.png)
+![Responsível - Tela de Dashboard -  Botão para visualizar mais tasks](https://github.com/davidbehling/calling-systems/blob/main/public/images/13.%20Tela%20de%20Dashboard%20-%20%20Bot%C3%A3o%20para%20visualizar%20mais%20tasks.png)
 
-![Responsível - Tela Editar Usuário](public/imagens/18. Editar Usuário.png)
+Responsível - Tela de Dashboard - Visualizar Task
+
+![Responsível - Tela de Dashboard - Visualizar Task](https://github.com/davidbehling/calling-systems/blob/main/public/images/14.%20Tela%20de%20Dashboard%20-%20Visualizar%20Task.png)
+
+Responsível - Tela Formulário Editar Task
+
+![Responsível - Tela Formulário Editar Task](https://github.com/davidbehling/calling-systems/blob/main/public/images/15.%20Formul%C3%A1rio%20Editar%20Task.png)
+
+Responsível - Tela Formulário Nova Task
+
+![Responsível - Tela Formulário Nova Task](https://github.com/davidbehling/calling-systems/blob/main/public/images/16.%20Formul%C3%A1rio%20Nova%20Task.png)
+
+Responsível - Tela Formulário Criar Customer
+
+![Responsível - Tela Formulário Criar Customer](https://github.com/davidbehling/calling-systems/blob/main/public/images/17.%20Formul%C3%A1rio%20Criar%20Customer.png)
+
+Responsível - Tela Editar Usuário
+
+![Responsível - Tela Editar Usuário](https://github.com/davidbehling/calling-systems/blob/main/public/images/18.%20Editar%20Usu%C3%A1rio.png)
 
 
