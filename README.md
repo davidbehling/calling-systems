@@ -8,14 +8,18 @@ Este projeto foi desenvolvido para **demonstrar e implementar um sistema de cham
 
 # 📌 Visão Geral
 
-Funcionalidades principais implementadas (ou em desenvolvimento):
+Funcionalidades principais implementadas:
 
-- 📞 **Sistema de Chamadas Telefônicas** (se aplicável)
-- 🌐 **Integração com APIs**
-- 🧑‍💻 **Gerenciamento de Fila de Chamadas**
-- 🚀 **Monitoramento de status de chamadas**
-- 🔄 **Processamento assíncrono de chamadas**
-- 📊 **Dashboard ou logs para controle das chamadas**
+📋 CRUD de Tickets/Chamados (criar, visualizar, editar)
+👥 Gerenciamento de Clientes (criar, consultar)
+🔐 Autenticação com Firebase (login, registro, logout)
+👤 Gerenciamento de Perfil (editar dados, upload avatar)
+📊 Dashboard com paginação de chamados
+🔍 Busca e filtro de chamados por status
+🎯 Categorização de chamados (Support, Technical, Financial)
+💾 Armazenamento em Firestore (sync em tempo real)
+🖼️ Upload de imagens para Firebase Storage
+⚡ Interface responsiva com React Router
 
 Este projeto tem como foco a **expansão modular**, para diferentes tipos de sistemas de chamadas e integrações.
 
@@ -26,15 +30,34 @@ Fluxo básico da aplicação:
 
 ```
 
-Cliente (UI ou API)
-↓
-Gerenciamento de Chamadas (Controllers)
-↓
-Filas de Chamadas (Queue)
-↓
-Processamento Assíncrono (Services / Workers)
-↓
-Status/Logs (Monitoramento)
+┌─────────────────────────────────┐
+│  Cliente (Browser React)        │
+│  - Signin/Signup                │
+│  - Dashboard (CRUD Calls)       │
+│  - Customer (CRUD Clientes)     │
+│  - Profile (Editar Perfil)      │
+└────────────┬────────────────────┘
+             ↓
+┌─────────────────────────────────┐
+│  AuthContext (Estado Global)    │
+│  - Gerencia autenticação        │
+│  - Armazena dados do usuário    │
+│  - Valida rotas privadas        │
+└────────────┬────────────────────┘
+             ↓
+┌─────────────────────────────────┐
+│  Firebase SDK (Client-side)     │
+│  - Firebase Auth (login/logout) │
+│  - Firestore (CRUD dados)       │
+│  - Storage (upload de avatar)   │
+└────────────┬────────────────────┘
+             ↓
+┌─────────────────────────────────┐
+│  Firebase Backend               │
+│  - Coleções: users, calls,      │
+│    customers                    │
+│  - Regras de segurança          │
+└─────────────────────────────────┘
 
 ```
 
@@ -46,29 +69,72 @@ A separação de responsabilidades facilita a escalabilidade e o controle das ch
 ```
 
 calling-systems/
-├── src/
-│   ├── controllers/              # Controladores de chamadas (API, telefonia)
-│   │   ├── callController.js     # Lógica de controle das chamadas
-│   │   └── queueController.js    # Gerenciamento de fila de chamadas
-│   │
-│   ├── services/                 # Lógica de processamento de chamadas
-│   │   └── callService.js        # Processamento assíncrono
-│   │
-│   ├── queues/                   # Gerenciamento de filas
-│   │   └── queueManager.js       # Adiciona/remover chamadas das filas
-│   │
-│   ├── logs/                     # Logs e status das chamadas
-│   │   └── logger.js             # Registro de status das chamadas
-│   │
-│   ├── app.js                    # Ponto de entrada da aplicação
-│   └── server.js                 # Configuração do servidor
-│
-├── public/                       # Arquivos estáticos
-├── config/                       # Configurações do sistema
-│   └── config.js                 # Configuração de fila, tempo de timeout, etc.
-│
-├── package.json                  # Dependências e scripts
-└── README.md                     # Documentação
+├── public/                                 — Arquivos estáticos servidos pelo app
+│   ├── images/                              — Imagens usadas no README e na UI
+│   │   ├── 01. Tela Inicial.png             — Screenshot da tela inicial
+│   │   └── ...
+│   ├── index.html                            — Template HTML principal (entrada da SPA)
+│   ├── favicon.ico                           — Ícone do site
+│   ├── robots.txt                            — Regras para robôs/crawlers
+│   ├── logo192.png                           — Ícone 192x192 para PWA
+│   ├── manifest.json                         — Manifest PWA / metadados
+│   └── logo512.png                           — Ícone 512x512 para PWA
+├── src/                                      — Código-fonte da aplicação React
+│   ├── assets/                               — Imagens e assets importáveis
+│   │   ├── avatar.png                        — Avatar padrão / fallback para usuários
+│   │   ├── cover.png                         — Imagem de capa usada em UI
+│   │   └── logo.png                          — Logotipo da aplicação
+│   ├── components/                           — Componentes reutilizáveis da UI
+│   │   ├── Header/                           — Sidebar / navegação lateral
+│   │   │   ├── header.css                    — Estilos do componente `Header`
+│   │   │   └── index.js                      — Componente React da sidebar (avatar + links)
+│   │   ├── Modal/                            — Modal reutilizável para detalhes/ações
+│   │   │   ├── index.js                      — Componente React do `Modal`
+│   │   │   └── modal.css                     — Estilos do `Modal`
+│   │   └── Title/                            — Pequeno componente de título de seção
+│   │       ├── index.js                      — Componente `Title` (ícone + texto)
+│   │       └── title.css                     — Estilos do `Title`
+│   ├── contexts/                             — Contextos React (estado compartilhado)
+│   │   └── auth.js                           — Contexto de autenticação (login, logout, usuário)
+│   ├── pages/                                — Páginas correspondentes às rotas
+│   │   ├── Customer/                         — Páginas relacionadas a customers
+│   │   │   └── index.js                      — Página `Customer` (CRUD / listagem)
+│   │   ├── Dashboard/                        — Dashboard principal (chamados)
+│   │   │   ├── index.js                      — Página `Dashboard` (lista/pesquisa)
+│   │   │   └── dashboard.css                 — Estilos do `Dashboard`
+│   │   ├── NewCall/                          — Criar / editar chamados
+│   │   │   ├── index.js                      — Página `NewCall` (formulário)
+│   │   │   ├── index.txt                     — Versão antiga/nota do componente `NewCall`
+│   │   │   └── newcall.css                   — Estilos do formulário `NewCall`
+│   │   ├── Profile/                          — Perfil do usuário
+│   │   │   ├── index.js                      — Página `Profile` (editar perfil & avatar)
+│   │   │   └── profile.css                   — Estilos da página `Profile`
+│   │   ├── Signin/                           — Tela de login
+│   │   │   ├── index.js                      — Página `Signin` (form de autenticação)
+│   │   │   └── signin.css                    — Estilos do `Signin`
+│   │   └── Signup/                           — Tela de registro de usuário
+│   │       └── index.js                      — Página `Signup` (form de registro)
+│   ├── routes/                               — Definição de rotas e proteção
+│   │   ├── index.js                          — Arquivo com rotas públicas e privadas
+│   │   └── Private.js                        — Wrapper/guard para rotas privadas
+│   ├── services/                             — Integrações externas e utilitários
+│   │   └── firebaseConnection.js             — Inicializa Firebase (auth, db, storage)
+│   ├── App.js                                — Componente raiz (Router + AuthProvider + Toasts)
+│   ├── index.css                             — Estilos globais da aplicação
+│   ├── index.js                              — Entrada do app (ReactDOM render / hydration)
+│   ├── reportWebVitals.js                    — Hook para medir performance (web-vitals)
+│   └── setupTests.js                         — Setup para testes (Jest / React Testing Library)
+├── .dockerignore                             — Arquivos ignorados ao construir imagem Docker
+├── .env.example                              — Exemplo de variáveis de ambiente (Firebase)
+├── .gitignore                                — Padrões de arquivos/pastas ignoradas pelo Git
+├── docker-compose.dev.yml                    — Configuração docker-compose para desenvolvimento
+├── Dockerfile                                — Imagem/etapas Docker para executar a app
+├── Makefile                                  — Alvos de conveniência (docker, start, stop)
+├── package.json                              — Dependências e scripts npm/yarn
+├── package-lock.json                         — Lockfile gerado pelo npm
+├── yarn.lock                                 — Lockfile gerado pelo Yarn
+├── README.md                                 — Documentação do projeto (instruções e imagens)
+└── readme.txt                                — Notas auxiliares / informações adicionais
 
 ````
 
