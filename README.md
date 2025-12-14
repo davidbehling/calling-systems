@@ -9,7 +9,7 @@ Este projeto foi desenvolvido para **demonstrar e implementar um sistema de cham
 # 📌 Visão Geral
 
 Funcionalidades principais implementadas:
-
+```
 📋 CRUD de Tickets/Chamados (criar, visualizar, editar)
 👥 Gerenciamento de Clientes (criar, consultar)
 🔐 Autenticação com Firebase (login, registro, logout)
@@ -20,7 +20,7 @@ Funcionalidades principais implementadas:
 💾 Armazenamento em Firestore (sync em tempo real)
 🖼️ Upload de imagens para Firebase Storage
 ⚡ Interface responsiva com React Router
-
+```
 Este projeto tem como foco a **expansão modular**, para diferentes tipos de sistemas de chamadas e integrações.
 
 
