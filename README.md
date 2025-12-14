@@ -1,5 +1,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![API](https://img.shields.io/badge/API-REST-black)
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-enabled-blue?logo=docker&logoColor=white)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -71,9 +73,6 @@ Fluxo básico da aplicação:
 └─────────────────────────────────┘
 
 ```
-
-A separação de responsabilidades facilita a escalabilidade e o controle das chamadas.
-
 
 # 📂 Estrutura de Diretórios
 
