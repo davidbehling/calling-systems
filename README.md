@@ -203,13 +203,11 @@ REACT_APP_FIREBASE_APP_ID=seu_app_id
 
 ```
 ### Build e execute com Docker Compose:
-
 ```bash
 make docker
 ```
 
-#### A aplicação estará disponível em:
-
+### A aplicação estará disponível em:
 ```
 http://localhost:3000
 ```
