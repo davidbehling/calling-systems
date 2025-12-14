@@ -3,7 +3,18 @@
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Este projeto foi desenvolvido para **demonstrar e implementar um sistema de chamadas**, seja de telefonia, API, ou qualquer sistema de interação remota. O objetivo é estudar o processo de chamada e resposta, gerenciamento de filas, e fornecer uma estrutura modular para criar sistemas baseados em chamadas.
+Este projeto foi desenvolvido para demonstrar e implementar um sistema de gerenciamento de tickets/chamados.
+
+O objetivo é estudar:
+  - React (componentes, hooks, contexto)
+  - Firebase (autenticação, Firestore, Storage)
+  - Roteamento (React Router)
+  - Gerenciamento de estado (Context API)
+  - Formulários (React Hook Form)
+  - Docker e containerização
+  - Boas práticas de desenvolvimento
+  
+É uma aplicação SPA (Single Page Application) que permite usuários autenticados criar, visualizar e editar tickets associados a clientes específicos.
 
 
 # 📌 Visão Geral
@@ -138,65 +149,38 @@ calling-systems/
 
 ````
 
-> A arquitetura está pensada para **futuras expansões**, como integrações com sistemas de telefonia, APIs externas e outras lógicas complexas de chamadas.
-
-
-# 🔌 Exemplos de Uso (Endpoints/API)
-
-# Endpoint de Início de Chamada
-```http
-POST /api/call/start
-````
-
-**Exemplo de payload**
-
-```json
-{
-  "caller": "+123456789",
-  "callee": "+987654321",
-  "type": "audio"
-}
-```
-
-# Endpoint de Fim de Chamada
-
-```http
-POST /api/call/end
-```
-
-**Exemplo de payload**
-
-```json
-{
-  "callId": "1234abcd"
-}
-```
-
-
 ⚙️ Tecnologias Utilizadas
 
 # Frontend:
+```
 JavaScript (ES6+)
 React (biblioteca UI)
 React Router (roteamento)
 React Icons (ícones)
 React Hook Form(gerenciamento de formulários)
 React Toastify (notificações)
+```
 CSS3 (estilos)
 
 # Backend:
+```
 Firebase Authentication(autenticação)
 Firestore (banco de dados NoSQL)
 Firebase Storage (upload de arquivos/imagens)
 Firebase SDK (cliente JavaScript)
+```
 # DevOps:
+```
 Docker (containerização)
 Docker Compose (orquestração local)
 npm / Yarn (gerenciador de pacotes)
+```
 
 # Ferramentas:
+```
 Makefile (scripts de conveniência)
 Git (controle de versão)
+```
 
 
 # 🚀 Como Executar o Projeto
