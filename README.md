@@ -1,3 +1,5 @@
+# 🧠 Calling Systems
+
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
@@ -19,7 +21,7 @@ O objetivo é estudar:
 É uma aplicação SPA (Single Page Application) que permite usuários autenticados criar, visualizar e editar tickets associados a clientes específicos.
 
 
-# 📌 Visão Geral
+## 📌 Visão Geral
 
 Funcionalidades principais implementadas:
 ```
@@ -37,7 +39,7 @@ Funcionalidades principais implementadas:
 Este projeto tem como foco a **expansão modular**, para diferentes tipos de sistemas de chamadas e integrações.
 
 
-# 🏗️ Arquitetura da Aplicação
+## 🏗️ Arquitetura da Aplicação
 
 Fluxo básico da aplicação:
 
@@ -74,10 +76,9 @@ Fluxo básico da aplicação:
 
 ```
 
-# 📂 Estrutura de Diretórios
+## 📂 Estrutura de Diretórios
 
 ```
-
 calling-systems/
 ├── public/                                 — Arquivos estáticos servidos pelo app
 │   ├── images/                              — Imagens usadas no README e na UI
@@ -148,9 +149,9 @@ calling-systems/
 
 ````
 
-⚙️ Tecnologias Utilizadas
+## ⚙️ Tecnologias Utilizadas
 
-# Frontend:
+**Frontend:**
 ```
 - JavaScript (ES6+)
 - React (biblioteca UI)
@@ -158,39 +159,37 @@ calling-systems/
 - React Icons (ícones)
 - React Hook Form(gerenciamento de formulários)
 - React Toastify (notificações)
+- CSS3 (estilos)
 ```
-CSS3 (estilos)
-
-# Backend:
+**Backend:**
 ```
 - Firebase Authentication(autenticação)
 - Firestore (banco de dados NoSQL)
 - Firebase Storage (upload de arquivos/imagens)
 - Firebase SDK (cliente JavaScript)
 ```
-# DevOps:
+**DevOps:**
 ```
 - Docker (containerização)
 - Docker Compose (orquestração local)
 - npm / Yarn (gerenciador de pacotes)
 ```
-
-# Ferramentas:
+**Ferramentas:**
 ```
 - Makefile (scripts de conveniência)
 - Git (controle de versão)
 ```
 
 
-# 🚀 Como Executar o Projeto
+## 🚀 Como Executar o Projeto
 
-# 1 Pré-requisitos:
+### Pré-requisitos:
 
 - Node.js v14+ e npm ou yarn
 - Docker e Docker Compose (opcional, para container)
 - Conta Firebase com projeto configurado
 
-# 2. Configure as variáveis de ambiente:
+### Configure as variáveis de ambiente:
 
 Copie .env.example para .env.local e adicione suas credenciais Firebase:
 
@@ -203,19 +202,19 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
 REACT_APP_FIREBASE_APP_ID=seu_app_id
 
 ```
-# 3. Build e execute com Docker Compose:
+### Build e execute com Docker Compose:
 
 ```bash
 make docker
 ```
 
-# 4. A aplicação estará disponível em:
+#### A aplicação estará disponível em:
 
 ```
 http://localhost:3000
 ```
 
-# Pacotes:
+## 📦 Package / Pacotes
 
 - npm i firebase
 
@@ -230,15 +229,15 @@ http://localhost:3000
 - npm i react-hook-form
 
 
-# Tela Inicial
+### 🖥️ Tela Inicial
 
 ![Tela Inicial](https://github.com/davidbehling/calling-systems/blob/main/public/images/01.%20Tela%20Inicial.png)
 
-# Tela de Registro
+### 🖥️ Tela de Registro
 
 ![Tela de Registro](https://github.com/davidbehling/calling-systems/blob/main/public/images/02.%20Tela%20de%20Registro.png)
 
-# Tela Dashboard - Após o login
+### 🖥️ Tela Dashboard - Após o login
 
 ![Tela Dashboard - Após o login](https://github.com/davidbehling/calling-systems/blob/main/public/images/03.%20Tela%20Dashboard%20-%20Ap%C3%B3s%20o%20login.png)
 
