@@ -173,46 +173,62 @@ POST /api/call/end
 ```
 
 
-# ⚙️ Tecnologias Utilizadas
+⚙️ Tecnologias Utilizadas
 
-* **JavaScript (ES6+)**
-* **Node.js** – Ambiente de execução
-* **Express** – Framework para APIs
-* **Redis / RabbitMQ** (opcional) – Gerenciamento de filas
-* **Axios / Fetch** – Comunicação HTTP
-* **MongoDB** (opcional) – Armazenamento de logs ou estado das chamadas
+# Frontend:
+JavaScript (ES6+)
+React (biblioteca UI)
+React Router (roteamento)
+React Icons (ícones)
+React Hook Form(gerenciamento de formulários)
+React Toastify (notificações)
+CSS3 (estilos)
+
+# Backend:
+Firebase Authentication(autenticação)
+Firestore (banco de dados NoSQL)
+Firebase Storage (upload de arquivos/imagens)
+Firebase SDK (cliente JavaScript)
+# DevOps:
+Docker (containerização)
+Docker Compose (orquestração local)
+npm / Yarn (gerenciador de pacotes)
+
+# Ferramentas:
+Makefile (scripts de conveniência)
+Git (controle de versão)
 
 
 # 🚀 Como Executar o Projeto
 
-# Pré-requisitos
+# 1 Pré-requisitos:
 
-* Node.js **16+**
-* npm ou yarn
-* (Opcional) Redis ou outro sistema de fila (caso use)
+* Node.js v14+ e npm ou yarn
+* Docker e Docker Compose (opcional, para container)
+* Conta Firebase com projeto configurado
 
-# Instalação
+# 2. Configure as variáveis de ambiente:
+
+Copie .env.example para .env.local e adicione suas credenciais Firebase:
+
+REACT_APP_FIREBASE_API_KEY=sua_chave_aqui
+REACT_APP_FIREBASE_AUTH_DOMAIN=seu_dominio.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=seu_projeto
+REACT_APP_FIREBASE_STORAGE_BUCKET=seu_bucket.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
+REACT_APP_FIREBASE_APP_ID=seu_app_id
+
+# 3. Build e execute com Docker Compose:
 
 ```bash
-npm install
-# ou
-yarn install
+make docker
 ```
 
-# Executar em ambiente de desenvolvimento
-
-```bash
-npm start
-# ou
-yarn start
-```
-
-A aplicação estará disponível em:
+# 4. A aplicação estará disponível em:
 
 ```
 http://localhost:3000
 ```
-
 
 # Pacotes:
 
