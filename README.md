@@ -2,7 +2,6 @@
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
-![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-enabled-blue?logo=docker&logoColor=white)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
